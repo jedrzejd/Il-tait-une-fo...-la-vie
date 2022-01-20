@@ -1,0 +1,17 @@
+Zmiana nazwy gry na:
+Było sobie życie
+================
+Gra dla dwóch osób. Na ekranie pojawi się obszar 2x14,
+początkowo w każdym polu obszru pojawi się uśmiechnięta minka obrócona w dowolną stronę.
+Co pewien czas nastapi aktualizacja jednego, losowego pola obszaru.
+Jest 10% szans na to, że minka zmieni się na smutną (też może być dowolnie obrócona).
+Zadaniem graczy jest jak najszybsze kliknięcie swojego klawisza po zobaczeniu minki smutnej.
+Szybszy z graczy otrzymuje punkt.
+Jeśli któryś z graczy naciśnie guzik zanim na planszy pojawi się smunta buźka, traci punkt.
+
+20%     prawidłowe skonfigurowanie diod
+20%     prawidłowe wypisywanie minek na ekran
+10%     prawidłowe wyświetlanie punktacji na ekran
+10%     prawidłowe skonfigurowanie przycisków
+20%     logika sprawdzająca przyznanie punktu
+20%     zrealizowanie przyśpieszenia tempa gry wraz z czasem
