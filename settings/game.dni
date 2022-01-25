@@ -14,11 +14,11 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [State Storage]
-Control Register=6628
+Control Register=6632
 [Sequencer]
-Control Register=6628
-NextState0=6628
-NextState1=6628
+Control Register=6632
+NextState0=6632
+NextState1=6632
 [Action Register]
 Break=1
 State Storage=1
@@ -34,13 +34,6 @@ ActionState=1
 [TraceHelper]
 Enabled=0
 ShowSource=1
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
 Count=0
 [FET]
@@ -61,3 +54,10 @@ SP=0
 SR=0
 all registers=0
 File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
