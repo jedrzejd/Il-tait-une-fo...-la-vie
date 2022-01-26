@@ -141,7 +141,7 @@ void resetPlanszy() {
 	pokazPlansze();
 }
 
-void playerAwygral() {
+void wygrana(char playerName) {
 	clearDisplay();
 	SEND_CHAR('W');
 	SEND_CHAR('y');
@@ -155,7 +155,7 @@ void playerAwygral() {
 	SEND_CHAR('a');
 	SEND_CHAR('c');
 	SEND_CHAR('z');
-	SEND_CHAR(' ');
+	SEND_CHAR(playerName);
 	SEND_CHAR('A');
 	SEND_CHAR('!');
 	playerA = 0;
@@ -165,40 +165,17 @@ void playerAwygral() {
 	resetPlanszy();
 }
 
-void playerBwygral() {
-	clearDisplay();
-	SEND_CHAR('W');
-	SEND_CHAR('y');
-	SEND_CHAR('g');
-	SEND_CHAR('r');
-	SEND_CHAR('a');
-	SEND_CHAR('l');
-	SEND_CHAR(' ');
-	SEND_CHAR('g');
-	SEND_CHAR('r');
-	SEND_CHAR('a');
-	SEND_CHAR('c');
-	SEND_CHAR('z');
-	SEND_CHAR(' ');
-	SEND_CHAR('B');
-	SEND_CHAR('!');
-	playerA = 0;
-	playerB = 0;
-	for (int i = 1000; i > 0; i--)
-		for (int j = 1000; j > 0; j--);
-	resetPlanszy();
-}
 
 void czyKtosWygral() {
 	int limit = 2;
 	if (playerA == limit)
-		playerAwygral();
+		wygrana('A');
 	else if (playerB == limit)
-		playerBwygral();
+		wygrana('B');
 	else if (playerA == -limit)
-		playerBwygral();
+		wygrana('B');
 	else if (playerB == -limit)
-		playerAwygral();
+		wygrana('A');
 
 
 }
