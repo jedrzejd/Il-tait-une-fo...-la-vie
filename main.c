@@ -2,23 +2,18 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "lcd.h"
 #include "portyLcd.h"
-#include "notes.h"
 
 #define BUTTON1 BIT4&P4IN
 #define BUTTON2 BIT5&P4IN
 #define BUTTON3 BIT6&P4IN
 #define BUTTON4 BIT7&P4IN
 
-unsigned int i = 0;
-unsigned int counter = 0;
-int option = 0;
-int highScorePoints = 0;
-int pos = 0;
-int playerA = 0, playerB = 0;
-
-int A[2][14],
+int playerA = 0,
+		playerB = 0,
+		A[2][14],
 		Pion = 2,
 		Poziom = 14,
 		newFace = 0,
@@ -38,7 +33,6 @@ char f5[] = {0x00, 0x00, 0x02, 0x14, 0x04, 0x14, 0x02, 0x00};
 char f6[] = {0x00, 0x00, 0x11, 0x0E, 0x00, 0x0A, 0x00, 0x00};
 char f7[] = {0x00, 0x00, 0x08, 0x05, 0x04, 0x05, 0x08, 0x00};
 
-void Clock(void);
 
 void create_chars() {
 	SEND_CMD(CG_RAM_ADDR);
@@ -71,15 +65,8 @@ void create_chars() {
 	SEND_CMD(DD_RAM_ADDR);
 }
 
-void write_text(unsigned char *text) {
-	for (int i = 0; i < strlen(text); i++) {
-		SEND_CHAR(text[i]);
-	}
-}
-
 void display(unsigned char *text) {
 	clearDisplay();
-
 	SEND_CMD(DD_RAM_ADDR);
 	write_text(text);
 	Delayx100us(250);
@@ -180,7 +167,6 @@ void czyKtosWygral() {
 
 }
 
-//----------------- main program -------------------
 void main(void) {
 
 	P2DIR |= BIT1;
