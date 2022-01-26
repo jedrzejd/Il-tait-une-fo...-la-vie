@@ -40,6 +40,9 @@ char f7[] = {0x00, 0x00, 0x08, 0x05, 0x04, 0x05, 0x08, 0x00};
 
 void Clock(void);
 
+/**
+ * Zainicjowanie niestandarodwych znakow - minek.
+ */
 void create_chars() {
 	SEND_CMD(CG_RAM_ADDR);
 
@@ -89,6 +92,11 @@ void display(unsigned char *text) {
 	}
 }
 
+/**
+ * Generuje dzwiek o czestotliwosci i dlugosci podanych w parametrach.
+ * @param freq czestotliwosc dzwieku
+ * @param dur dlugosc dzwieku
+ */
 void sound(int freq, int dur) {
 	for (i = 0; i < dur; i++) {
 		P4OUT |= 0x08;
@@ -99,10 +107,17 @@ void sound(int freq, int dur) {
 	}
 }
 
+/**
+ * Wyswietla jednocyfrowy, dodatni int na ekran LCD.
+ * @param i jednocyfrowy, dodatni int do wyswietlenia
+ */
 void SEND_INT(unsigned int i) {
 	SEND_CHAR(i + 48);
 }
 
+/**
+ * Wywswietla migawke planszy.
+ */
 void pokazPlansze() {
 	SEND_CMD(DD_RAM_ADDR);
 	if (playerA >= 0)
@@ -133,6 +148,9 @@ void pokazPlansze() {
 		SEND_INT(-playerB);
 }
 
+/**
+ * Wypelnia plansze losowymi,usmiechnietymi minkami.
+ */
 void resetPlanszy() {
 	for (int i = 0; i < Pion; i++)
 		for (int j = 0; j < Poziom; j++)
@@ -189,6 +207,9 @@ void playerBwygral() {
 	resetPlanszy();
 }
 
+/**
+ * Logika sprawdzajaca warunki wygranej
+ */
 void czyKtosWygral() {
 	int limit = 2;
 	if (playerA == limit)
